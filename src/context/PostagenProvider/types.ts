@@ -1,7 +1,11 @@
 export interface IPostagem{
     id?: number;
     mensagem?: string;
-    instituico?: string;
+    instituico?: Instituico;
+}
+
+export interface Instituico {
+    nome: string;
 }
 /*
 export interface IContext extends IUserRegister{
