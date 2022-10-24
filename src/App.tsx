@@ -17,7 +17,7 @@ function App() {
               <h2>Olá voce logou-se</h2>
             </ProtectedLayout>
           } />
-          <Route path='/postagens' element={<Postagem />} /> 
+          <Route path='/postagens' element={<Postagem />} />
           <Route path='/login' element={<Login />} /> 
           <Route path='/register' element={<Register />} /> 
         </Routes>      

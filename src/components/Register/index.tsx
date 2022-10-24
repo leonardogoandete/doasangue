@@ -8,7 +8,6 @@ import {
     Checkbox,
     Form,
     Input,
-    Select,
     message
   } from 'antd';
   import React, { useState } from 'react';

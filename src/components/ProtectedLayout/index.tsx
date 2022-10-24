@@ -1,4 +1,4 @@
-import { Button, Col, Form, Input, Row, message } from "antd"
+import { Button, Form, message } from "antd"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../../context/AuthProvider/useAuth"
 
@@ -14,6 +14,7 @@ export const ProtectedLayout = ({children}: {children: JSX.Element}) => {
     async function onClique (){
         try {
             auth.logout()
+            message.info("Deslogou-se")
             console.log("Deslogou-se")
             navigate('/')
         } catch (error) {
