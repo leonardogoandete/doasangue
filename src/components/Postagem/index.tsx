@@ -4,7 +4,7 @@ import { Api } from "../../services/api";
 
 
 
-const dataTT = await Api.get("/postagens/")
+const dataTT = await fetch("/postagens") //Api.get("/postagens/")
 
 export const Postagem = () => {
     /*
