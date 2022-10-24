@@ -1,34 +1,16 @@
-import { message, List, Avatar } from "antd"
-import React, { useState } from 'react';
+import { List, Avatar } from "antd"
+import { useState } from 'react';
 import { IPostagem } from "../../context/PostagenProvider/types";
 import { Api } from "../../services/api";
-
-
 
 export const Postagem = () => {
   
   const [postagens, setUserList] = useState<IPostagem[]>([]);
     Api.get<IPostagem[]>('/postagens')
           .then(response => {
-              console.log(response);
+              console.log(response.data);
               setUserList( response.data );
           });
-    
-
-/*
-    const data = [{title: 'Ant Design Title 1', 
-        }, {
-          title: 'Ant Design Title 2',
-        },
-        {
-          title: 'Ant Design Title 3',
-        },
-        {
-          title: 'Ant Design Title 4',
-        },
-      ];
-
-      */
 
 return (
     <List
