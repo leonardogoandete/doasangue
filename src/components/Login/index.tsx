@@ -18,6 +18,13 @@ export const Login = () => {
     }
 
     return(
+        <div
+        style={{
+            padding:150, 
+            width: 1800, 
+            top: -290
+        }}
+        >
         <Row
             justify="center"
             align="middle"
@@ -27,7 +34,7 @@ export const Login = () => {
         >
             <Col span={30}>
                 <Form
-                    labelCol={{span: 8}}
+                    labelCol={{span: 6}}
                     wrapperCol={{span: 16}}
                     onFinish={onFinish}
                 >
@@ -70,6 +77,6 @@ export const Login = () => {
             </Col>
 
         </Row>
-
+        </div>
     )
 }

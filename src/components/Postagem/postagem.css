@@ -1,3 +1,8 @@
-.ant-list-item-meta-content{
-    width:max-content
+li,ul {
+    background: aquamarine;
+    width: max-content;
+}
+div.ant-list-item-meta-content{
+    width: 100%;
+
 }

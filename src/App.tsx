@@ -1,4 +1,3 @@
-//import React, { useState } from 'react'
 import { AuthProvider } from './context/AuthProvider'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { ProtectedLayout } from './components/ProtectedLayout'

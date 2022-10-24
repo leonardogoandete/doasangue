@@ -52,6 +52,13 @@ export const Register = () => {
     }
 
             return (
+              <div
+              style={{
+                padding:300, 
+                width: 1500, 
+                top: -290
+                }}
+              >
               <Form
                 {...formItemLayout}
                 name="register"
@@ -147,5 +154,6 @@ export const Register = () => {
                   </Button>
                 </Form.Item>
               </Form>
+              </div>
             );
           };
