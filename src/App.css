@@ -5,15 +5,16 @@
 }
 
 .site-layout .site-layout-background {
-  background: #fff;
+  background: rgb(234, 214, 214);
+  margin-top: 5px;
 }
 
+/* Ajusta as propriedades da logo como tamanho*/
 .logo {
   height: 32px;
-  margin: 16px;
-  background: rgba(255, 255, 255, 0.3);
 }
 
+/* colocar a imagem do logo centralizada na div*/
 .center {
   display: block;
   margin-left: auto;

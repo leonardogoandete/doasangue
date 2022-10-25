@@ -35,12 +35,12 @@ export const Register = () => {
     },
   };
 
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   async function onRegister(values: { nome: string, endereco: string, cpf: string, email: string, senha: string }) {
     try {
       RegisterRequest(values.nome, values.endereco, values.cpf, values.email, values.senha)
       message.info("Sucesso ao cadastrar")
-      navigate('/login')
+      //navigate('/login')
     } catch (error) {
       message.error('Erro ao realizar o registro!')
     }
@@ -48,7 +48,6 @@ export const Register = () => {
 
   return (
     <div >
-      
       <Form
         //className={styles} id="formularioRegistro"
         {...formItemLayout}
@@ -58,7 +57,6 @@ export const Register = () => {
         layout="vertical"
       >
         <Form.Item 
-        style={{width:2500}}
         {...tailFormItemLayout}
         >
           <h2>Registro de Usuário</h2>
