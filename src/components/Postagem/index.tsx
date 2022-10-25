@@ -11,17 +11,16 @@ export const Postagem = () => {
   const [postagens, setPostagens] = useState<IPostagem[]>([]);
     Api.get<IPostagem[]>('/postagens')
           .then(response => {
-              console.log(response.data);
               setPostagens( response.data );
           });
-  return postagens
+  return postagens;
   }
-  const post = getAllPosts()
+  //const post = getAllPosts()
 return (
     <List
     style={{padding:150, width: 1800, top: -290}}
     itemLayout="horizontal"
-    dataSource={post}
+    dataSource={getAllPosts()}
     renderItem={item => (
       <List.Item>
         <List.Item.Meta
