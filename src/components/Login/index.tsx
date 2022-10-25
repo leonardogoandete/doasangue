@@ -20,19 +20,11 @@ export const Login = () => {
     return(
         <div
         className={styles} id="formulario"
-        style={{
-            padding:150, 
-            width: 1905, 
-            top: -290
-        }}
         >
         <Row
             className="formulario-row"
             justify="center"
             align="middle"
-            style={{
-                height: '100vh'
-            }}
         >
             <Col span={30}>
                 <Form

@@ -25,7 +25,8 @@ return (
       <List.Item>
         <List.Item.Meta
           avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-          title={<h3>{item.instituico?.nome}</h3>}
+          //title={<h3>{item.instituico?.nome}</h3>}
+          title={<a href="#">{item.instituico?.nome}</a>}
           description={item.mensagem}
         style={{width:800}}/>
       </List.Item>
