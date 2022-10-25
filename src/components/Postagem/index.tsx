@@ -2,8 +2,7 @@ import { List, Avatar } from "antd"
 import { useState } from 'react';
 import { IPostagem } from "../../context/PostagenProvider/types";
 import { Api } from "../../services/api";
-
-
+import styles from './postagem.css'
 
 export const Postagem = () => {
 
@@ -17,8 +16,9 @@ export const Postagem = () => {
   }
   //const post = getAllPosts()
 return (
+  <div className={styles}>
     <List
-    style={{padding:150, width: 1800, top: -290}}
+    //style={{padding:150, width: 1800, top: -290}}
     itemLayout="horizontal"
     dataSource={getAllPosts()}
     renderItem={item => (
@@ -31,5 +31,6 @@ return (
       </List.Item>
     )}
     />
+    </div>
 )
 }

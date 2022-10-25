@@ -2,7 +2,7 @@ import { Button, Col, Form, Input, Row, message } from "antd"
 import { useNavigate } from "react-router-dom"
 import {  LockOutlined, UserOutlined  } from '@ant-design/icons';
 import { useAuth } from "../../context/AuthProvider/useAuth"
-
+import styles from './login.css'
 
 export const Login = () => {
     const auth  = useAuth();
@@ -19,13 +19,15 @@ export const Login = () => {
 
     return(
         <div
+        className={styles} id="formulario"
         style={{
             padding:150, 
-            width: 1800, 
+            width: 1905, 
             top: -290
         }}
         >
         <Row
+            className="formulario-row"
             justify="center"
             align="middle"
             style={{

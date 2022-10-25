@@ -4,6 +4,7 @@ import { ProtectedLayout } from './components/ProtectedLayout'
 import { Login } from './components/Login'
 import { Register } from './components/Register'
 import { Postagem } from './components/Postagem'
+import './App.css'
 
 function App() {
 
@@ -28,11 +29,3 @@ function App() {
 }
 
 export default App
-/*
-<Route path='/postagens' 
-          element={
-            <ProtectedLayout>
-              {<Postagem />}
-            </ProtectedLayout>
-          } />
-          */

@@ -1,0 +1,13 @@
+#formulario{
+    padding:150px; 
+    width: 1900; 
+    background-color: rgb(187, 216, 189);
+    font-size: large;
+    
+}
+
+#formulario-row{
+    justify-content:"center";
+    align-items: "formulario";
+    height: '100vh';
+}

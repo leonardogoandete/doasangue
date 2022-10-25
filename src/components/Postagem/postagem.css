@@ -1,8 +1,18 @@
 li,ul {
-    background: aquamarine;
-    width: max-content;
-}
-div.ant-list-item-meta-content{
-    width: 100%;
+    background: rgb(111, 236, 178);
+    /*width: 100%; */
+    padding:10;
+    top: 10;
 
+}
+
+
+.teste {
+    background-color: skyblue;
+  }
+
+#postagens{
+    background: rgb(255, 0, 0);
+    width: 100%;
+    padding:150;
 }
