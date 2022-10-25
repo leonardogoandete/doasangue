@@ -2,7 +2,7 @@ import { List, Avatar } from "antd"
 import { useEffect, useState } from 'react';
 import { IPostagem } from "../../context/PostagenProvider/types";
 import { Api } from "../../services/api";
-import styles from './postagem.css'
+import './postagem.css'
 
 export const Postagem = () => {
 
@@ -17,19 +17,18 @@ export const Postagem = () => {
   }
 
 return (
-  <div className={styles}>
+  <div>
     <List
-    //style={{padding:150, width: 1800, top: -290}}
+    style={{}}
     itemLayout="horizontal"
     dataSource={getAllPosts()}
     renderItem={item => (
       <List.Item>
         <List.Item.Meta
           avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-          //title={<h3>{item.instituico?.nome}</h3>}
-          title={<a href="#">{item.instituico?.nome}</a>}
+          title={<h3>{item.instituico?.nome}</h3>}
           description={item.mensagem}
-        style={{width:800}}/>
+        />
       </List.Item>
     )}
     />
