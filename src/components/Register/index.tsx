@@ -13,20 +13,22 @@ import {
 export const Register = () => {
   const formItemLayout = {
     labelCol: {
-      xs: { span: 24 },
-      sm: { span: 8 },
+      xs: { span: 4 },
+      sm: { span: 6 },
     },
     wrapperCol: {
       xs: { span: 24 },
-      sm: { span: 16 },
+      sm: { span: 12 },
     },
   };
 
   const tailFormItemLayout = {
     wrapperCol: {
       xs: {
-        span: 24,
-        offset: 0,
+        //span: 24,
+        //offset: 0,
+        span: 12,
+        offset: 6
       },
       sm: {
         span: 16,
@@ -48,6 +50,7 @@ export const Register = () => {
 
   return (
     <div >
+      
       <Form
         className={styles} id="formularioRegistro"
         {...formItemLayout}
@@ -55,6 +58,7 @@ export const Register = () => {
         onFinish={onRegister}
         scrollToFirstError
       >
+        <h2>Registro de Usuário</h2>
         <Form.Item
           name="nome"
           label="Nome Completo"
@@ -126,17 +130,15 @@ export const Register = () => {
           rules={[
             {
               validator: (_, value) =>
-                value ? Promise.resolve() : Promise.reject(new Error('Should accept agreement')),
+                value ? Promise.resolve() : Promise.reject(new Error('Você não aceitou os termos!')),
             },
           ]}
-          {...tailFormItemLayout}
         >
           <Checkbox>
             Eu li os <a href="">termos!</a>
           </Checkbox>
         </Form.Item>
-
-        <Form.Item {...tailFormItemLayout}>
+        <Form.Item >
           <Button type="primary" htmlType="submit">
             Register
           </Button>
