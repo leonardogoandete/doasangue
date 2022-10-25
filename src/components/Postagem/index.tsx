@@ -1,5 +1,5 @@
 import { List, Avatar } from "antd"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IPostagem } from "../../context/PostagenProvider/types";
 import { Api } from "../../services/api";
 import styles from './postagem.css'
@@ -8,13 +8,14 @@ export const Postagem = () => {
 
   function getAllPosts(){
   const [postagens, setPostagens] = useState<IPostagem[]>([]);
-    Api.get<IPostagem[]>('/postagens')
-          .then(response => {
-              setPostagens( response.data );
-          });
+    useEffect(() => {
+      Api.get<IPostagem[]>('/postagens')
+      .then(response => setPostagens(response.data))
+    },[]
+  )
   return postagens;
   }
-  //const post = getAllPosts()
+
 return (
   <div className={styles}>
     <List
