@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
     async function authenticated(cpf: string, senha: string) {
         const response = await LoginRequest(cpf, senha);
 
-        const payload = {token: response.token, cpf}
+        const payload = {token: response.token}
         setUser(payload);
         setUserLocalStorage(payload);
     }

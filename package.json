@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@ant-design/pro-components": "^2.3.25",
     "@types/react-router-dom": "^5.3.3",
     "antd": "^4.23.6",
     "axios": "^1.1.3",

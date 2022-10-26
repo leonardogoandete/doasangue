@@ -1,76 +1,148 @@
-import { Button, Col, Form, Input, Row, message } from "antd"
+import {
+    LockOutlined,
+    UserOutlined,
+  } from '@ant-design/icons';
+  import {
+    LoginForm,
+    ProFormText,
+  } from '@ant-design/pro-components';
+import { Tabs, message } from 'antd';
 import { useNavigate } from "react-router-dom"
-import {  LockOutlined, UserOutlined  } from '@ant-design/icons';
+import { useState } from 'react';
 import { useAuth } from "../../context/AuthProvider/useAuth"
-import styles from './login.css'
-
-export const Login = () => {
+  
+type LoginType = 'user' | 'instituicao';
+ 
+  
+  export const Login = () => {
+    const [loginType, setLoginType] = useState<LoginType>('user');    
     const auth  = useAuth();
     const navigate = useNavigate();
-    async function onFinish (values: {cpf: string, senha: string}){
-        try {
-            await auth.authenticated(values.cpf, values.senha)
-            message.info('Login realizado com sucesso!')
-            navigate('/profile')
-        } catch (error) {
-            message.error('CPF ou senha invalidos!')
+    
+    async function onFinish (values: {cpf: string, cnpj: string, senha: string}){
+        const cnpj = values.cnpj;
+        const cpf = values.cpf;
+        const senha = values.senha;
+        
+        if(cnpj == null){
+            try {
+                console.log("É um usuario: " + cpf);
+                await auth.authenticated(cpf, senha)
+                message.info('Login realizado com sucesso!')
+                navigate('/profile')
+            } catch (error) {
+                message.error('CPF ou senha invalidos!')
+            }
+        }else{
+            console.log(senha)
+            try {
+                console.log("É uma instituicao: " + cnpj);
+                await auth.authenticated(cnpj, senha)
+                message.info('Login realizado com sucesso!')
+                navigate('/profile')
+            } catch (error) {
+                message.error('CNPJ ou senha invalidos!')
+            }
         }
     }
+    
 
-    return(
-        <div
-        className={styles} id="formulario"
+    return (
+      <div style={{ backgroundColor: 'white' }}>
+        <LoginForm
+          title="Login"
+          subTitle="autentique-se"
+          onFinish={onFinish}
+
         >
-        <Row
-            className="formulario-row"
-            justify="center"
-            align="middle"
-        >
-            <Col span={30}>
-                <Form
-                    labelCol={{span: 6}}
-                    wrapperCol={{span: 16}}
-                    onFinish={onFinish}
+          <Tabs
+            centered
+            activeKey={loginType}
+            onChange={(activeKey) => setLoginType(activeKey as LoginType)}
+          >
+            <Tabs.TabPane key={'user'} tab={'Usuario'} />
+            <Tabs.TabPane key={'instituicao'} tab={'Instituicao'} />
+          </Tabs>
+          {loginType === 'user' && (
+            <>
+              <ProFormText
+                name="cpf"
+                fieldProps={{
+                  size: 'large',
+                  prefix: <UserOutlined className={'prefixIcon'} />,
+                }}
+                placeholder={'CPF'}
+                rules={[
+                  {
+                    required: true,
+                    message: 'Digite seu CPF!',
+                  },
+                ]}
+              />
+              <ProFormText.Password
+                name="senha"
+                fieldProps={{
+                  size: 'large',
+                  prefix: <LockOutlined className={'prefixIcon'} />,
+                }}
+                placeholder={'Senha'}
+                rules={[
+                  {
+                    required: true,
+                    message: 'Digite sua senha!',
+                  },
+                ]}
+              />
+            <div
+                style={{
+                marginBlockEnd: 24,
+                }}
+            >
+                <a
+                style={{
+                    float: 'right',
+                    padding: 0
+                }}
+                
                 >
-                    <Form.Item
-                    label='CPF'
-                    name='cpf'
-                    rules={[
-                        {
-                          required: true,
-                          message: 'Por favor insira seu CPF!',
-                        },
-                      ]}
-                    >
-                        <Input 
-                        prefix={<UserOutlined className="site-form-item-icon" />}
-                        />
-                    </Form.Item>
-
-                    <Form.Item
-                    label='Senha'
-                    name='senha'
-                    rules={[
-                        {
-                          required: true,
-                          message: 'Por favor insira sua senha!',
-                        },
-                      ]}
-                    >
-                        <Input.Password 
-                        prefix={<LockOutlined className="site-form-item-icon" />}
-                        />
-                    </Form.Item>
-
-                    <Form.Item wrapperCol={{offset:8, span:16}}>
-                        <Button type="primary" htmlType='submit' className="login-form-button">
-                            Log In
-                        </Button>  Or <a href="/register">register now!</a>                      
-                    </Form.Item>
-                </Form>
-            </Col>
-
-        </Row>
-        </div>
-    )
-}
+                Registre-se
+                </a>
+            </div>
+            </>
+          )}
+          {loginType === 'instituicao' && (
+            <>
+            <ProFormText
+              name="cnpj"
+              fieldProps={{
+                size: 'large',
+                prefix: <UserOutlined className={'prefixIcon'} />,
+              }}
+              placeholder={'CNPJ'}
+              rules={[
+                {
+                  required: true,
+                  message: 'Digite seu CNPJ!',
+                },
+              ]}
+            />
+            <ProFormText.Password
+              name="senha"
+              fieldProps={{
+                size: 'large',
+                prefix: <LockOutlined className={'prefixIcon'} />,
+              }}
+              placeholder={'Senha'}
+              rules={[
+                {
+                  required: true,
+                  message: 'Digite sua senha!',
+                },
+              ]}
+            />
+          </>
+          )}
+        </LoginForm>
+      </div>
+    );
+  };
