@@ -1,6 +1,6 @@
 import { Button, Form, message } from "antd"
 import { useNavigate } from "react-router-dom"
-import { useAuth } from "../../context/AuthProvider/useAuth"
+import { useAuth } from "../../context/AuthUserProvider/useAuth"
 
 export const ProtectedLayout = ({children}: {children: JSX.Element}) => {
     const navigate = useNavigate();

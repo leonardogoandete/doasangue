@@ -1,4 +1,4 @@
-import { AuthProvider } from './context/AuthProvider'
+import { AuthProvider } from './context/AuthUserProvider'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { ProtectedLayout } from './components/ProtectedLayout'
 import { Login } from './components/Login'
@@ -20,7 +20,7 @@ import React, { useState } from 'react';
 import logo from "../src/assets/doasanguepoa/png/logo-no-background.png"
 
 function App() {
-/*
+
   return (
     <AuthProvider>
       <BrowserRouter>
@@ -39,9 +39,10 @@ function App() {
       </BrowserRouter>
     </AuthProvider>
     
-  )*/
+  )
+}
 
-  
+  /*
   const { Header, Content, Footer, Sider } = Layout;
   
   
@@ -92,6 +93,6 @@ function App() {
     );
   };
 
-
+*/
 
 export default App
