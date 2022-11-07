@@ -1,7 +1,7 @@
 import { AuthProvider } from './context/AuthUserProvider'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { ProtectedLayout } from './components/ProtectedLayout'
-import { Login } from './components/Login'
+import { Login } from './components/Login/index'
 import { Register } from './components/Register'
 import { Postagem } from './components/Postagem'
 import { Agendamento }from './components/Agendamento'
@@ -16,7 +16,7 @@ import {
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Layout, Menu, Image } from 'antd';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from "../src/assets/doasanguepoa/png/logo-no-background.png"
 
 function App() {
@@ -40,12 +40,25 @@ function App() {
     </AuthProvider>
     
   )
+<<<<<<< HEAD
 }
+=======
+        }
+>>>>>>> parent of a585b04... trocado exibição do front
 
   /*
   const { Header, Content, Footer, Sider } = Layout;
   
-  
+  useEffect(() => {
+    // just for sample
+    // please use dva dispatch or umi-request in real world
+    fetch('/api/example.json')
+      .then(response => response.json())
+      .then(data => {
+        setMenuData(data || []);
+      });
+    }, []);
+
   type MenuItem = Required<MenuProps>['items'][number];
   
   function getItem(
@@ -75,6 +88,7 @@ function App() {
     const [menuData, setMenuData] = useState([]);
   
     return (
+  
       <Layout style={{ minHeight: '100vh' }}>
         <Sider collapsible collapsed={collapsed} onCollapse={value => setCollapsed(value)}>
         <Image src={logo} className="center"/>
@@ -84,7 +98,7 @@ function App() {
           <Header className="site-layout-background" style={{ padding: 0, background: "#fff" }}/>
           <Content style={{ margin: '0 16px' }}>
             <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-              <Postagem />
+              <Login />
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
@@ -92,7 +106,12 @@ function App() {
       </Layout>
     );
   };
+<<<<<<< HEAD
 
 */
+=======
+*/
+
+>>>>>>> parent of a585b04... trocado exibição do front
 
 export default App
