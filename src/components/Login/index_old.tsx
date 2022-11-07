@@ -1,11 +1,11 @@
 import { Button, Col, Form, Input, Row, message } from "antd"
 import { useNavigate } from "react-router-dom"
 import {  LockOutlined, UserOutlined  } from '@ant-design/icons';
-import { useAuthUsuario } from "../../context/AuthUserProvider/useAuth"
+import { useAuth } from "../../context/AuthProvider/useAuth"
 import styles from './login.css'
 
 export const Login = () => {
-    const auth  = useAuthUsuario();
+    const auth  = useAuth();
     const navigate = useNavigate();
     async function onFinish (values: {cpf: string, senha: string}){
         try {

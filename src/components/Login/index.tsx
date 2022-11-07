@@ -9,15 +9,14 @@ import {
 import { Tabs, message } from 'antd';
 import { useNavigate } from "react-router-dom"
 import { useState } from 'react';
-import { useAuthInstituicao } from "../../context/AuthInstituicaoProvider/useAuth"
-import { useAuthUsuario } from "../../context/AuthUserProvider/useAuth"
+import { useAuth } from "../../context/AuthProvider/useAuth"
   
 type LoginType = 'user' | 'instituicao';
  
   
   export const Login = () => {
     const [loginType, setLoginType] = useState<LoginType>('user');    
-    
+    const auth  = useAuth();
     const navigate = useNavigate();
     
     async function onFinish (values: {cpf: string, cnpj: string, senha: string}){
@@ -26,7 +25,6 @@ type LoginType = 'user' | 'instituicao';
         const senha = values.senha;
         
         if(cnpj == null){
-            const auth  = useAuthUsuario();
             try {
                 console.log("É um usuario: " + cpf);
                 await auth.authenticated(cpf, senha)
@@ -37,12 +35,11 @@ type LoginType = 'user' | 'instituicao';
             }
         }else{
             console.log(senha)
-            const auth  = useAuthInstituicao();
             try {
                 console.log("É uma instituicao: " + cnpj);
                 await auth.authenticated(cnpj, senha)
                 message.info('Login realizado com sucesso!')
-                navigate('/instituicao')
+                navigate('/profile')
             } catch (error) {
                 message.error('CNPJ ou senha invalidos!')
             }
